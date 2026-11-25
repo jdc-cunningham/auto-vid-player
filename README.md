@@ -4,7 +4,7 @@
 
 <img src="./pi-4b-plays-bird-videos.jpg"/>
 
-This is setup on a headless raspberry pi (as a local server). It's headless so it's not an open desktop with accessible keyboard. It's installed in my own apartment but yeah.
+This is setup on a headless raspberry pi (as a local server). It's headless so it's not a desktop with a GUI with accessible keyboard. It's installed in my own apartment but yeah. You use SSH to control it.
 
 This uses Openbox with Chromium browser to play .mp4 video files of birds.
 
