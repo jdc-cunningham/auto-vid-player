@@ -31,14 +31,3 @@ cmd = [
 ]
 
 process = subprocess.Popen(cmd, env=env)
-
-# Capture the output and check for errors
-# result = subprocess.run(
-    # ["echo", "Hello from CLI"], 
-    # capture_output=True, 
-    # text=True, 
-    # check=True
-# )
-
-# print("Output:", result.stdout.strip())
-# print("Return Code:", result.returncode)
