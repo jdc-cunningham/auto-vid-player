@@ -7,6 +7,7 @@ from tinytag import TinyTag
 import os
 import signal
 import subprocess
+import time
 
 load_dotenv()
 last_video_played_id = os.getenv("LAST_VIDEO_PLAYED_ID") # based on alpha sort array of videos in folder
@@ -48,13 +49,16 @@ def stop_video(pid):
 
 def play_next_video():
     video_paths = get_video_paths()
-    cur_video_id = os.getenv("LAST_VIDEO_PLAYED_ID")
+    cur_video_id = os.getenv("LAST_VIDEO_PLAYED_ID") or 0
     next_video_id = 0
 
     if cur_video_id < len(video_paths):
         next_video_id = cur_video_id + 1
 
     video_path = f"file:///{video_paths[next_video_id]}"
+    video_tag = TinyTag.get(video_path)
+    video_duration_seconds = int(video_tag.duration)
+    os.environ["VIDEO_END_EPOCH"] = int(time.time()) + video_duration_seconds
     stop_video(playing_video_pid)
     playing_video_pid = play_video(video_path)
 
@@ -63,6 +67,7 @@ while True:
     cur_hour = datetime.now().hour
 
     if cur_hour <= end_hour:
+        
         play_next_video()
     else:
         if playing_video_pid is not None:

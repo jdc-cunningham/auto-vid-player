@@ -42,7 +42,25 @@ I'm working on this half-ass watching TV so not really thinking about it too muc
 
 This library looks cool tinytag can tell how long a video is
 
+10:53 PM
 
+Alright I think this makes sense... using `os.environ` to write the playing video's details for determining if it should stop or not
+
+If the script ends then the playing video doesn't matter anymore
+
+The top-most control is the start/end hours
+
+11:00 PM
+
+Ugh... this is bad
+
+There is also a problem where if the video stops playing since it ended... the loop has to catch that and start the next video
+
+This could be simple just every second check if the video is still playing like PID check vs. tracking time
+
+I need to check what happens when a video ends does the process end or is it still going but the video is just not playing anymore
+
+In that case I would have to track the video duration against current time
 
 ---
 
