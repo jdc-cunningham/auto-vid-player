@@ -62,6 +62,23 @@ I need to check what happens when a video ends does the process end or is it sti
 
 In that case I would have to track the video duration against current time
 
+11:09 PM
+
+I'll have to think about this some more, need to keep it simple
+
+- while loop polls every second
+- first run no video info, 0 IDs
+- checks if current time is within the operating range (start, end)
+- checks if current video is still playing (probably use VIDEO_END_EPOC stamp here)
+
+A video I played earlier manually ended I can SSH and check right now if the PID still exists/process is still running
+
+I think so since the video signal goes to idle/orange light on monitor (white when running)
+
+When I call "stop service" via systemd then the monitor comes back to life
+
+So yeah obviously it's still running lol
+
 ---
 
 ### 11/24/2026

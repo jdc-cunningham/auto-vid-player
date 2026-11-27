@@ -72,3 +72,5 @@ while True:
     else:
         if playing_video_pid is not None:
             stop_video(playing_video_pid)
+
+    time.sleep(1)
