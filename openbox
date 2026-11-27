@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# set python venv
+. /home/pi/auto-vid-player/.auto-vid-player/bin/activate
+
+# hide mouse cursor
+unclutter -idle 0 -jitter 2 -root &
+
+# start GUI
+openbox --config-file ~/.config/openbox/rc.xml --startup /home/pi/auto-vid-player/run.py
